@@ -46,3 +46,59 @@ duration,protocol_type,service,flag,src_bytesdst,bytes,land,wrong_fragment,urgen
 @attribute 'dst_host_rerror_rate' real
 @attribute 'dst_host_srv_rerror_rate' real
 @attribute 'class' {'normal', 'anomaly'}
+
+The NSL-KDD dataset is a widely used benchmark dataset for intrusion detection systems (IDS) in computer networks. It is an improved version of the popular KDD Cup 1999 dataset, which was widely used for evaluating IDS approaches but had several shortcomings.
+The NSL-KDD dataset contains network traffic data that simulates a typical corporate network. It includes both normal traffic and various types of attacks, such as DoS, Probe, R2L (Remote to Local), and U2R (User to Root). The dataset is divided into two parts: the training set and the test set. The training set contains around 125,000 network connections, while the test set contains around 23,000 connections.
+The NSL-KDD dataset was created to address some of the limitations of the KDD Cup 1999 dataset. One of the main issues with the KDD Cup 1999 dataset was that it contained a lot of redundant data, which made it difficult to compare different IDS approaches. The NSL-KDD dataset eliminates this redundancy by removing duplicate records and correcting some of the errors in the original dataset.
+Overall, the NSL-KDD dataset is a valuable resource for researchers and practitioners working on intrusion detection systems. It has been widely used to evaluate the effectiveness of various IDS approaches, and it continues to be an important benchmark dataset for this field.
+	
+The NSL-KDD dataset contains 41 attributes, which can be classified into three categories: basic features of network connections, content features, and traffic features.
+1.	Basic Features of Network Connections: These attributes describe basic information about the network connection, such as the source and destination IP addresses and ports, protocol type, and duration of the connection. These features are important for identifying patterns and anomalies in network traffic, and can help to distinguish between normal and malicious traffic.
+2.	Content Features: These attributes capture information about the content of the network packets, such as the number of bytes sent and received, and the type of service being used. Content features are useful for identifying attacks that involve data exfiltration or other types of data manipulation.
+3.	Traffic Features: These attributes capture information about the overall traffic flow in the network, such as the number of connections to the same host in a given time period, or the number of failed login attempts. Traffic features are important for identifying attacks that involve scanning or reconnaissance of the network, or for detecting Denial-of-Service (DoS) attacks.
+In the implementation of an IDS, these attributes are used to train machine learning models that can identify patterns of normal and malicious behavior in network traffic. For example, by analyzing the basic features of network connections, an IDS can learn to recognize patterns of traffic that are associated with certain types of attacks, such as port scanning or brute-force attacks. By combining these features with content and traffic features, an IDS can build a more comprehensive picture of network activity and detect a wider range of attacks.
+
+The NSL-KDD dataset contains 41 attributes and a label column, which indicates whether a network connection is normal or malicious. Here are the 42 columns in the dataset:
+1.	duration: the duration of the connection in seconds
+2.	protocol_type: the protocol type of the connection (e.g. TCP, UDP, ICMP)
+3.	service: the type of service on the destination host (e.g. http, ftp, smtp)
+4.	flag: the connection status (e.g. SF, S0, REJ, RSTO)
+5.	src_bytes: the number of bytes sent from the source to the destination
+6.	dst_bytes: the number of bytes sent from the destination to the source
+7.	land: binary value indicating if the connection is from/to the same host/port
+8.	wrong_fragment: the number of 'wrong' fragments received
+9.	urgent: the number of urgent packets
+10.	hot: the number of 'hot' indicators in the packet
+11.	num_failed_logins: the number of failed login attempts
+12.	logged_in: binary value indicating if a user is logged in
+13.	num_compromised: the number of compromised conditions
+14.	root_shell: binary value indicating if root shell is obtained
+15.	su_attempted: binary value indicating if 'su root' command was attempted
+16.	num_root: the number of root accesses
+17.	num_file_creations: the number of file creation operations
+18.	num_shells: the number of shell prompts
+19.	num_access_files: the number of operations on access control files
+20.	num_outbound_cmds: the number of outbound commands in an ftp session
+21.	is_hot_login: binary value indicating if the login belongs to the 'hot' list
+22.	is_guest_login: binary value indicating if the login is a guest login
+23.	count: the number of connections to the same host in the past 2 seconds
+24.	srv_count: the number of connections to the same service in the past 2 seconds
+25.	serror_rate: the percentage of connections that have 'SYN' errors
+26.	srv_serror_rate: the percentage of connections to the same service with 'SYN' errors
+27.	rerror_rate: the percentage of connections that have 'REJ' errors
+28.	srv_rerror_rate: the percentage of connections to the same service with 'REJ' errors
+29.	same_srv_rate: the percentage of connections to the same service
+30.	diff_srv_rate: the percentage of connections to different services
+31.	srv_diff_host_rate: the percentage of connections to different hosts
+32.	dst_host_count: the number of connections to the same destination host
+33.	dst_host_srv_count: the number of connections to the same destination service
+34.	dst_host_same_srv_rate: the percentage of connections to the same destination service
+35.	dst_host_diff_srv_rate: the percentage of connections to different destination services
+36.	dst_host_same_src_port_rate: the percentage of connections to the same source port
+37.	dst_host_srv_diff_host_rate: the percentage of connections to different hosts for the same service
+38.	dst_host_serror_rate: the percentage of connections to the same destination host with 'SYN' errors
+39.	dst_host_srv_serror_rate: the percentage of connections to the same destination service with 'SYN' errors
+40.	dst_host_rerror_rate: the percentage of connections to the same destination host with 'REJ' errors
+41.	dst_host_srv_rerror_rate: the percentage of connections to the same destination service with 'REJ' errors
+42.	class: the label column, indicating if a network connection
+
